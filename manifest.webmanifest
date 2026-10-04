@@ -4,6 +4,7 @@
   "description": "Practica lectura a primera vista de piano con tu teclado MIDI",
   "start_url": "./",
   "scope": "./",
+  "id": "/ReadNote/",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#14202b",
