@@ -20,7 +20,7 @@ Descarga `Bravura.otf` desde https://github.com/steinbergmedia/bravura y colóca
 2. Abre la URL `https://TU_USUARIO.github.io/lectura-piano/` en **Chrome para Android**.
 3. Menú ⋮ → **Instalar aplicación** (o «Añadir a la pantalla de inicio»).
 4. Conecta el teclado por **USB (adaptador OTG)** antes de abrir la app y acepta el permiso MIDI.
-Tras la primera carga funciona sin conexión. Si cambias la app, sube la versión de caché (`V` en `sw.js`).
+Tras la primera carga funciona sin conexión. Si cambias la app, sube la versión de caché (`V` en `sw.js`, siempre con el prefijo `lectura-piano-`).
 
 ## Uso en local
 Abre `index.html` en Chrome o Edge. Para servirla con un servidor local:
