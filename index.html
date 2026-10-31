@@ -397,7 +397,7 @@ dialog input[type=checkbox]:checked::after{content:"";width:5px;height:9px;margi
 </div>
 </dialog>
 <script>
-const VER='1.3.3';const $=i=>document.getElementById(i),cv=$('cv'),c=cv.getContext('2d'),kv=$('kv'),kc=kv.getContext('2d');
+const VER='1.3.4';const $=i=>document.getElementById(i),cv=$('cv'),c=cv.getContext('2d'),kv=$('kv'),kc=kv.getContext('2d');
 /* plicas de un grupo con barras: hacia arriba si hay alguna nota por debajo de la línea central y la más alejada por arriba no la supera en más de un grado (como en las ediciones impresas); hacia abajo si todas están en o sobre la línea o dominan claramente las de arriba */
 function farUpG(l){const mid=l[0].bt+4;let a=0,b=0;for(const n of l){const d=n.pos-mid;if(d>a)a=d;else if(-d>b)b=-d}return b>=1&&b>=a-1}
 let SPC='a';try{SPC=localStorage.lp_spc=='p'?'p':'a'}catch{}
