@@ -397,7 +397,7 @@ dialog input[type=checkbox]:checked::after{content:"";width:5px;height:9px;margi
 </div>
 </dialog>
 <script>
-const VER='1.3.1';const $=i=>document.getElementById(i),cv=$('cv'),c=cv.getContext('2d'),kv=$('kv'),kc=kv.getContext('2d');
+const VER='1.3.2';const $=i=>document.getElementById(i),cv=$('cv'),c=cv.getContext('2d'),kv=$('kv'),kc=kv.getContext('2d');
 let SPC='a';try{SPC=localStorage.lp_spc=='p'?'p':'a'}catch{}
 const S=10,Y=[150,270],BOT=[30,18],PXB=90;
 /* separación horizontal: «a» (actual) = proporcional al tiempo; «p» (impresa) = crece más despacio que la duración, como en una partitura impresa */
@@ -506,7 +506,7 @@ const on=[];for(const n of ev){const k=Math.round(n.t*1000)/1000;if(!on.length||
 const ccT=new Set();for(const c of ccs||[]){const k=Math.round(c.t*1000)/1000;ccT.add(k);const o=on.find(x=>x.t>=k-.0005);if(o)o.c=1}
 const T=on.map(o=>o.t),XS=mkXS(on,T);
 const WW={};for(const o of on)WW[o.t]=o.w||0;
-return{on,ev,bars,tempo:Math.round(tempo),fifths,ts,bm,end,ka,grps,T,XS,vs,ccs:ccs||[],ccT,WW,ch}}
+return{xon:on,ev,bars,tempo:Math.round(tempo),fifths,ts,bm,end,ka,grps,T,XS,vs,ccs:ccs||[],ccT,WW,ch}}
 async function unzip(buf){const v=new DataView(buf),u=new Uint8Array(buf);let e=buf.byteLength-22;while(v.getUint32(e,true)!=0x06054b50)e--;
 let n=v.getUint16(e+10,true),p=v.getUint32(e+16,true);
 for(;n--;){const cm=v.getUint16(p+10,true),cs=v.getUint32(p+20,true),nl=v.getUint16(p+28,true),xl=v.getUint16(p+30,true),kl=v.getUint16(p+32,true),lo=v.getUint32(p+42,true),
@@ -748,7 +748,7 @@ const goFs=()=>{if(WIN||!AFS())return;try{const d=document.documentElement;if(!i
 document.addEventListener('fullscreenchange',()=>{if(document.fullscreenElement)return;const away=document.hidden||Date.now()-pickT<90000;if(away)return;fsOut=1;/* el botón atrás del móvil sale primero de pantalla completa: en el player se trata como «atrás» y vuelve a la pantalla anterior */if(!document.body.classList.contains('home')&&history.state&&history.state.v=='play')history.back()});
 for(const id of['mode','oth','met','ci']){const e=$(id),ck=e.type=='checkbox';try{const v=localStorage['lp_'+id];if(v!=null){if(ck)e.checked=v=='1';else e.value=v}}catch{}e.onchange=()=>sv('lp_'+id,ck?(e.checked?1:0):e.value)}
 for(const[id,k,d]of[['phs','lp_phs',1],['afs','lp_afs',0]]){const c=$(id);try{const v=localStorage[k];c.checked=v!=null?v=='1':!!d}catch{}c.onchange=()=>sv(k,c.checked?1:0)}
-{const e=$('spc');e.value=SPC;e.onchange=()=>{SPC=e.value=='p'?'p':'a';sv('lp_spc',SPC);if(song&&song.on){song.XS=mkXS(song.on,song.T);xp=XT(pos)}}}
+{const e=$('spc');e.value=SPC;e.onchange=()=>{SPC=e.value=='p'?'p':'a';sv('lp_spc',SPC);if(song&&song.xon){song.XS=mkXS(song.xon,song.T);xp=XT(pos)}}}
 {const c=$('pgb'),ap=()=>document.body.classList.toggle('nopg',!c.checked);try{const v=localStorage.lp_pgb;if(v!=null)c.checked=v=='1'}catch{}c.onchange=()=>{sv('lp_pgb',c.checked?1:0);ap()};ap()}
 try{const h=localStorage.lph||'00';for(const[i,x]of['L','R'].entries())if(h[i]=='1')$('h'+x).onclick()}catch{}
 
